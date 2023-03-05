@@ -7,7 +7,9 @@
   <div class="collapse navbar-collapse" id="navbarColor02">
     <ul class="navtar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" data-toggle="modal" data-target="#exampleModal">Add Raver<span class="sr-only"></a>
+        <a class="nav-link" data-toggle="modal" data-target="#exampleModal">Add Raver<span class="sr-only">
+        </span>
+        </a>
       </li>
     </ul>
   </div>
@@ -18,16 +20,16 @@
             <div class="card m-b-30">
                 <div class="card-body row">
                     <div class="col-6">
-                        <a href=""><img src="{{raver.imageUrl}}" alt="" class="img-fluid rounded-circle w-60"></a>
+                        <a href=""><img src="{{raver?.imageUrl}}" alt="" class="img-fluid rounded-circle w-60"></a>
                     </div>
                     <div class="col-6 card-title align-self-center mb-0">
-                        <h5>Emma A. Main</h5>
-                        <p class="m-0">Graphics Designer</p>
+                        <h5>{{raver?.name}}</h5>
+                        <p class="m-0">{{raver?.city}}</p>
                     </div>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><i class="fa fa-envelope float-right"></i>Email : <a href="#">PaulGoyette@gmail.com</a></li>
-                    <li class="list-group-item"><i class="fa fa-phone float-right"></i>Phone : 000 123-456</li>
+                    <li class="list-group-item"><i class="fa fa-envelope float-right"></i>Favorite DJ: <a href="#">{{raver?.favDJ}}</a></li>
+                    <li class="list-group-item"><i class="fa fa-phone float-right"></i>Phone: {{raver?.phone}}</li>
                 </ul>
                 <div class="card-body">
                     <div class="float-right btn-group btn-group-sm">
