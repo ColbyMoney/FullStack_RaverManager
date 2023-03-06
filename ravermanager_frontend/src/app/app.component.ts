@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Raver } from './Raver';
 import { RaverService } from './raver.service';
 
@@ -21,6 +22,19 @@ export class AppComponent implements OnInit {
     this.raverService.getRavers().subscribe(
       (response: Raver[]) => {
         this.ravers = response;
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
+
+  public onAddRaver(addForm: NgForm): void {
+    document.getElementById('add-raver-form')?.click();
+    this.raverService.addRaver(addForm.value).subscribe(
+      (response: Raver) => {
+        console.log(response);
+        this.getRavers();
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
