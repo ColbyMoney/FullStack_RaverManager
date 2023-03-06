@@ -72,6 +72,22 @@ export class AppComponent implements OnInit {
     );
   }
 
+  public searchRavers(key: string): void {
+    const results: Raver[] = [];
+    for (const raver of this.ravers) {
+      if (raver.name.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      || raver.city.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      || raver.favDJ.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      || raver.phone.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
+        results.push(raver);
+      }
+    }
+    this.ravers = results;
+    if (results.length === 0 || !key) {
+      this.getRavers();
+    }
+  }
+
   public onOpenModal(raver: Raver, mode: string): void {
     const container = document.getElementById('main-container');
     const button = document.createElement('button');
