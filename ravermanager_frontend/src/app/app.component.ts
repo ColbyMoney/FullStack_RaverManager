@@ -34,7 +34,13 @@ export class AppComponent implements OnInit {
     button.style.display = 'none';
     button.setAttribute('data-toggle', 'modal');
     if (mode == 'add') {
-      button.setAttribute('data-target', 'addRaverModal');
+      button.setAttribute('data-target', '#addRaverModal');
+    }
+    if (mode == 'edit') {
+      button.setAttribute('data-target', '#addRaverModal');
+    }
+    if (mode == 'delete') {
+      button.setAttribute('data-target', '#addRaverModal');
     }
   }
 }
