@@ -11,6 +11,7 @@ import { RaverService } from './raver.service';
 })
 export class AppComponent implements OnInit {
   public ravers: Raver[] = [];
+  public editRaver: Raver = {id: -1, name: '', city: '', favDJ: '', phone: '', imageUrl: '', raverCode: ''};
 
   constructor(private raverService: RaverService){}
 
@@ -42,6 +43,19 @@ export class AppComponent implements OnInit {
     );
   }
 
+  public onUpdateRaver(raver: Raver): void {
+    document.getElementById('edit-raver-form')?.click();
+    this.raverService.updateRaver(raver).subscribe(
+      (response: Raver) => {
+        console.log(response);
+        this.getRavers();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
+
   public onOpenModal(raver: Raver, mode: string): void {
     const container = document.getElementById('main-container');
     const button = document.createElement('button');
@@ -52,6 +66,7 @@ export class AppComponent implements OnInit {
       button.setAttribute('data-target', '#addRaverModal');
     }
     if (mode === 'edit') {
+      this.editRaver = raver;
       button.setAttribute('data-target', '#editRaverModal');
     }
     if (mode === 'delete') {
