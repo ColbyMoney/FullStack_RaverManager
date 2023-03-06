@@ -1,2 +1,2 @@
 # FullStack_RaverManager
-Full-stack program utilizing Spring Boot, Angular.js, a connected MySQL database and RESTful API.
+Full-stack program utilizing Angular, Spring Boot, a connected MySQL database, and RESTful API.
